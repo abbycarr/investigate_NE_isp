@@ -471,7 +471,7 @@ def parse_el(row: dict, include_offer_meta=False):
     speeds = dict(get_cheapest_speed_el(row))
     record = {**record, **speeds}
     if include_offer_meta:
-        reccord['offers_earthlink'] = row['offers_earthlink']
+        record['offers_earthlink'] = row['offers_earthlink']
     
     return record
     
