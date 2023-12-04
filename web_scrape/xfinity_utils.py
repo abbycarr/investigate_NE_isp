@@ -4,7 +4,7 @@ import time
 import regex as re
 
 def get_xfinity_offer_data(house_number: str, street_name: str, street_type:str, city: str, state: str, zip_code: str, lat: float, long: float):
-    address = '{0} {1} {2}, {3}, {4}'.format(house_number, street_name, street_type, city, state)
+    address = '{0} {1} {2}, {3}'.format(house_number, street_name, street_type, zip_code)
     headers = {
         'authority': 'www.xfinity.com',
         'accept': 'application/json, text/plain, */*',
