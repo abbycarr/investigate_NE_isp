@@ -8,7 +8,7 @@ from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
 from sklearn.neighbors import BallTree
 
-from config import name2speed_el, state2redlining, cities
+from config import name2speed_el, state2redlining, cities, state2majorcity
 
 
 ## Census Geocoding
@@ -175,6 +175,34 @@ def parse_att(row: dict):
     record = {**record, **speeds}
     return record
 
+def parse_hughes(row: dict):
+    lon, lat =  row['features'][0]['geometry']['coordinates']
+    state = row['features'][0]['properties']['state']
+    record = {
+        "address_full": row['features'][0]['properties']['address_full'],
+        "incorporated_place" : row['features'][0]['properties']['incorporated_place'],
+        "major_city": state2majorcity[state],
+        "state" : state,
+        "lat": lat,
+        "lon": lon,
+        "block_group": str(row['features'][0]['properties']['block_group']),
+        "collection_datetime": row['features'][0]['properties']['collection_datetime'],
+        'provider': row['features'][0]['properties']['provider']
+    }
+    speeds =  pd.DataFrame([dict(
+        speed_down = row['features'][0]['properties']['speed_down'],
+        speed_up = row['features'][0]['properties']['speed_up'],
+        speed_unit = row['features'][0]['properties']['speed_unit'],
+        price = row['features'][0]['properties']['price'],
+        technology = row['features'][0]['properties']['technology'],
+        package = row['features'][0]['properties']['package'],
+        fastest_speed_down = row['features'][0]['properties']['fastest_speed_down'],
+        fastest_speed_price = row['features'][0]['properties']['fastest_speed_price']
+    )]).iloc[0]
+    speeds = dict(speeds)        
+    record = {**record, **speeds}
+    return record
+
 def att_workflow(fn: str):
     data = []
     with gzip.open(fn, 'rb') as f:
@@ -184,6 +212,16 @@ def att_workflow(fn: str):
                 record = parse_att(row)
                 record['fn'] = fn
                 data.append(record)
+    return data
+
+def hughes_workflow(fn: str):
+    data = []
+    with gzip.open(fn, 'rb') as f:
+        for line in f.readlines():
+            row = json.loads(line)
+            record = parse_hughes(row)
+            record['fn'] = fn
+            data.append(record)
     return data
 
 

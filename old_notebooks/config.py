@@ -8,6 +8,10 @@ with open('../data/input/addresses/cities.ndjson', 'r') as f:
         except:
             print(line)
             
+state2majorcity = {
+    'MA' : 'Boston'
+}
+
 inc_city_att = [
     'Atlanta city',
     'Charleston city',
@@ -96,6 +100,10 @@ inc_city_el = [
     'Seattle city',
     'Sioux Falls city',
     'Wichita city'
+]
+
+inc_city_hughes = [
+    'Boston city',
 ]
 
 city2ap = {
