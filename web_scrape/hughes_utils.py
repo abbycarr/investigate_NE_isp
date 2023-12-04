@@ -76,8 +76,9 @@ def get_hughes_offer_data(house_number: str, street_name: str, street_type:str, 
     offer = response.json()
     
     upload_speed_dict = {'15 GB':3, '50 GB':3, 'Fusion 100GB':3, 'Fusion 200GB':5}
-    fastest_down_speed ,fastest_speed_price = get_fastest_speed_down_price(BeautifulSoup(offer[12]['data']).find_all(class_='plan-and-pricing-item'))
-    cheapest_plan = BeautifulSoup(offer[12]['data']).find(class_='plan-and-pricing-item')
+    
+    cheapest_plan = BeautifulSoup(offer[12]['data'], features='html.parser').find(class_='plan-and-pricing-item')
+
     package = cheapest_plan.find(class_='plan-and-pricing-item__plan-data').text.strip()
     price = cheapest_plan.find( class_='plan-and-pricing-item__monthly_price').text
     price = re.search('[0-9.]+', price).group()
@@ -85,6 +86,12 @@ def get_hughes_offer_data(house_number: str, street_name: str, street_type:str, 
     speed_down = download_details[0]
     speed_unit = download_details[1]
     speed_up = upload_speed_dict[package]
+    try:
+        fastest_down_speed, fastest_speed_price = get_fastest_speed_down_price(BeautifulSoup(offer[12]['data'], features='html.parser').find_all(class_='plan-and-pricing-item'))
+    except:
+        fastest_down_speed = np.Nan
+        fastest_speed_price = np.Nan
+
 
     data_dict ={}
     data_dict['address_full'] = '{0}, {1} {2}, {3}, {4}, {5}'.format(house_number, street_name, street_type, city, state, zip_code)
