@@ -1,3 +1,7 @@
+state2majorcity = {
+    'MA' : 'Boston'
+}
+
 state2redlining = {
     "PA": ["../data/input/redlining/PAPhiladelphia1937.geojson"],
     "MD": ["../data/input/redlining/MDBaltimore1937.geojson"],
