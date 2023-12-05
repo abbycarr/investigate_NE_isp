@@ -8,7 +8,7 @@ from sklearn.preprocessing import StandardScaler
 
 pd.options.mode.chained_assignment = None
 
-from notebooks.config import speed_labels, income_labels, redlininggrade2name, race_labels
+from config import speed_labels, income_labels, redlininggrade2name, race_labels
 
 RACE_COL = "race_perc_non_white"
 
