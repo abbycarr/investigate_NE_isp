@@ -76,10 +76,10 @@ def bucket_and_bin(df, limitations=False):
         df["median_household_income"] == -666666666.0, "median_household_income"
     ] = None
 
-    # df['income_level'] = aspirational_quartile(
-    #     df['median_household_income'],
-    #     labels=['Low', 'Middle-Lower', 'Middle-Upper', 'Upper Income'],
-    # )
+    df['income_level'] = aspirational_quartile(
+        df['median_household_income'],
+        labels=['Low', 'Middle-Lower', 'Middle-Upper', 'Upper Income'],
+    )
 
     df["speed_down_bins"] = pd.cut(
         df.speed_down,
