@@ -8,7 +8,7 @@ from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
 from sklearn.neighbors import BallTree
 
-from config import name2speed_el, state2redlining, cities, state2majorcity
+from notebooks.config import name2speed_el, state2redlining, cities, state2majorcity
 
 
 ## Census Geocoding

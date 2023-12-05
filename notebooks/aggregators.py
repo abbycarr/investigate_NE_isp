@@ -67,7 +67,7 @@ def filter_df(fn, isp):
     return df
 
 
-def bucket_and_bin(df, limitations=False):
+def bucket_and_bin(df, limitations=True):
     """This is how we wrangle our data"""
     # These are our IVs
     # https://www.federalreserve.gov/consumerscommunities/cra_resources.htm

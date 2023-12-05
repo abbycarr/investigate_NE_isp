@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 pd.options.mode.chained_assignment = None 
 
-from config import (
+from notebooks.config import (
     speed_labels, 
     income_labels, 
     redlininggrade2name, 
