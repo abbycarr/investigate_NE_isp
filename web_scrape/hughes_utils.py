@@ -9,19 +9,16 @@ def get_fastest_speed_down_price(plans):
     names = []
     prices = []
     down_speeds = []
+    # down_speed_dct = {'15 GB':25, '50 GB':25, 'Fusion 100 GB': 25, 'Fusion 200 GB':50}
 
     for plan  in plans:
 
         name = plan.find(class_='plan-and-pricing-item__plan-data').text.strip()
-        price = plan.find( class_='plan-and-pricing-item__monthly_price').text
-        price = re.search('[0-9.]+', price).group()
-
-        down_speed = plan.find('strong').text.split()[0]
         
-        try:
-            down_speed = eval(down_speed)
-        except:
-            down_speed = np.NaN
+        price = plan.find(class_='plan-and-pricing-item__monthly_price').text
+        price = re.search('[0-9.]+', price).group().strip()
+        down_speed = plan.find_all('strong')
+        down_speed = [x.text for x in down_speed if 'download' in x.text.lower()][0].split(' ')[0]
         
         prices.append(price)
         names.append(name)
