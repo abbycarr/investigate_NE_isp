@@ -117,37 +117,7 @@ def bucket_and_bin(df, limitations=False):
     return df
 
 
-def unserved(df, isp="AT&T", height=5):
-    # percentage of households unserved
-    city2unserved = {}
-    for city, _df in df.groupby("major_city"):
-        city2unserved[city] = len(_df[_df.speed_down == 0]) / len(_df)
-
-    to_plot = pd.Series(city2unserved).sort_values() * 100
-    ax = to_plot.plot(
-        kind="barh",
-        figsize=(6, height),
-        width=0.5,
-        color="black",
-        edgecolor=None,
-    )
-    # Hide the right and top spines
-    ax.spines["right"].set_visible(False)
-    ax.spines["top"].set_visible(False)
-
-    # Only show ticks on the left and bottom spines
-    ax.yaxis.set_ticks_position("left")
-    ax.xaxis.set_ticks_position("bottom")
-
-    ax.set_ylabel("")
-    ax.set_xlabel("Percentage of unserved housholds")
-
-    plt.title(
-        f"Percentage of unserved households by {isp}", loc="left", y=1.025, size=12.5
-    )
-
-
-def speed_breakdown(df, location="National", isp="AT&T"):
+def speed_breakdown(df, isp, location="National"):
     categories = set(df.speed_down_bins.unique())
     legend_elements = [
         Line2D(
@@ -204,7 +174,7 @@ def speed_breakdown(df, location="National", isp="AT&T"):
     plt.show()
 
 
-def race(df, isp="AT&T", location="National"):
+def race(df, isp, location="National"):
     categories = set(df.speed_down_bins.unique())
     legend_elements = [
         Line2D(
@@ -285,7 +255,7 @@ def race(df, isp="AT&T", location="National"):
     plt.show()
 
 
-def income(df, isp="AT&T", location="National"):
+def income(df, isp, location="National"):
     categories = set(df.speed_down_bins.unique())
     legend_elements = [
         Line2D(
@@ -376,7 +346,7 @@ def income(df, isp="AT&T", location="National"):
     plt.show()
 
 
-def redlining(df, isp="AT&T", location="National"):
+def redlining(df, isp, location="National"):
     categories = set(df.speed_down_bins.unique())
     legend_elements = [
         Line2D(
@@ -465,7 +435,7 @@ def redlining(df, isp="AT&T", location="National"):
     plt.show()
 
 
-def plot_race(df, location="National", isp="AT&T", price="$55"):
+def plot_race(df, isp, location="National", price="$55"):
     categories = set(df.speed_down_bins.unique())
     legend_elements = [
         Line2D(
