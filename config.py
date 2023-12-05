@@ -1,6 +1,4 @@
-state2majorcity = {
-    'MA' : 'Boston'
-}
+state2majorcity = {"MA": "Boston"}
 
 state2redlining = {
     "PA": ["../data/input/redlining/PAPhiladelphia1937.geojson"],
@@ -32,4 +30,50 @@ state2address = {
     "VT": ["../data/open_address/original/city_of_burlington-addresses-city.geojson"],
     "VA": ["../data/open_address/original/city_of_norfolk-addresses-city.geojson"],
     "WV": ["../data/open_address/original/wv_statewide-addresses-state.geojson"],
+}
+
+city2ap = {
+    "Albuquerque": "Albuquerque, N.M.",
+    "Atlanta": "Atlanta, Ga.",
+    "Baltimore": "Baltimore, Md.",
+    "Billings": "Billings, Mont.",
+    "Boise": "Boise, Idaho",
+    "Boston": "Boston, Mass.",
+    "Charleston": "Charleston, S.C.",
+    "Charlotte": "Charlotte, N.C.",
+    "Cheyenne": "Cheyenne, Wyo.",
+    "Chicago": "Chicago, Ill.",
+    "Columbus": "Columbus, Ohio",
+    "Denver": "Denver, Colo.",
+    "Des Moines": "Des Moines, Iowa",
+    "Detroit": "Detroit, Mich.",
+    "Fargo": "Fargo, N.D.",
+    "Houston": "Houston, Texas",
+    "Huntsville": "Huntsville, Ala.",
+    "Indianapolis": "Indianapolis, Ind.",
+    "Jackson": "Jackson, Miss.",
+    "Jacksonville": "Jacksonville, Fla.",
+    "Kansas City": "Kansas City, Mo.",
+    "Las Vegas": "Las Vegas, Nev.",
+    "Little Rock": "Little Rock, Ark.",
+    "Los Angeles": "Los Angeles, Calif.",
+    "Louisville": "Louisville, Ky.",
+    "Milwaukee": "Milwaukee, Wis.",
+    "Minneapolis": "Minneapolis, Minn.",
+    "Nashville": "Nashville, Tenn.",
+    "New Orleans": "New Orleans, La.",
+    "New York City": "New York, N.Y.",
+    "Newark": "Newark, N.J.",
+    "Oklahoma City": "Oklahoma City, Okla.",
+    "Omaha": "Omaha, Neb.",
+    "Philadelphia": "Philadelphia, Pa.",
+    "Phoenix": "Phoenix, Ariz.",
+    "Portland": "Portland, Ore.",
+    "Providence": "Providence, R.I.",
+    "Salt Lake City": "Salt Lake City, Utah",
+    "Seattle": "Seattle, Wash",
+    "Sioux Falls": "Sioux Falls, S.D.",
+    "Virginia Beach": "Virginia Beach, Va.",
+    "Washington": "Washington",
+    "Wichita": "Wichita, Kan.",
 }
