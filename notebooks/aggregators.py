@@ -8,7 +8,7 @@ from sklearn.preprocessing import StandardScaler
 
 pd.options.mode.chained_assignment = None
 
-from config import speed_labels, income_labels, redlininggrade2name, race_labels
+from notebooks.config import speed_labels, income_labels, redlininggrade2name, race_labels
 
 RACE_COL = "race_perc_non_white"
 
@@ -67,7 +67,7 @@ def filter_df(fn, isp):
     return df
 
 
-def bucket_and_bin(df, limitations=False):
+def bucket_and_bin(df, limitations=True):
     """This is how we wrangle our data"""
     # These are our IVs
     # https://www.federalreserve.gov/consumerscommunities/cra_resources.htm
