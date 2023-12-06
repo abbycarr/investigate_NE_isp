@@ -1,3 +1,13 @@
+import json
+
+cities = []
+with open('../data/input/addresses/cities.ndjson', 'r') as f:
+    for line in f:
+        try:
+            cities.append(json.loads(line))
+        except:
+            print(line)
+
 state2majorcity = {"MA": "Boston"}
 
 state2redlining = {
