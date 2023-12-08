@@ -12,7 +12,6 @@ from config import speed_labels, income_labels, redlininggrade2name, race_labels
 
 RACE_COL = "race_perc_non_white"
 
-
 def aspirational_quartile(series, labels):
     desc = series.describe()
     bins = []
@@ -24,47 +23,6 @@ def aspirational_quartile(series, labels):
                 bins[-1] = bins[-1] - 0.001
         bins.append(boundry)
     return pd.cut(series, bins=bins, labels=labels, include_lowest=True)
-
-
-## For all ISP analysis
-def filter_df(fn, isp):
-    """
-    Filters out no service offers, and cities which we can't analyze
-    """
-    df = pd.read_csv(fn)
-    df = df[df.speed_down != 0]
-    df = bucket_and_bin(df)
-    df["isp"] = isp
-    # ----------------- Cases by ISP -------------------
-    if isp == "Verizon":
-        df.price = df.price.replace({40: 39.99, 49.99: 39.99})
-        df = df[df.price == 39.99]
-        nyc_cities = [
-            "new york",
-            "brooklyn",
-            "queens",
-            "staten island",
-            "brooklyn",
-            "bronx",
-        ]
-        nyc = []
-        for city, _df in df.groupby("major_city"):
-            if city in nyc_cities:
-                nyc.extend(_df.to_dict(orient="records"))
-        nyc = pd.DataFrame(nyc)
-        nyc["major_city"] = "new york city"
-
-        # add NYC
-        df = df[~df.major_city.isin(nyc_cities)]
-        df = df.append(nyc)
-
-    elif isp == "EarthLink":
-        df = df[df.contract_provider.isin(["AT&T", "CenturyLink"])]
-    # ----------------------------------------------------
-
-    homogenous_cities = {"bridgeport", "wilmington"}
-    df = df[~df.major_city.isin(homogenous_cities)]
-    return df
 
 
 def bucket_and_bin(df, limitations=True):
@@ -115,7 +73,6 @@ def bucket_and_bin(df, limitations=True):
     )
 
     return df
-
 
 def speed_breakdown(df, isp, location="National"):
     categories = set(df.speed_down_bins.unique())
@@ -254,7 +211,6 @@ def race(df, isp, location="National"):
 
     plt.show()
 
-
 def income(df, isp, location="National"):
     categories = set(df.speed_down_bins.unique())
     legend_elements = [
@@ -345,7 +301,6 @@ def income(df, isp, location="National"):
 
     plt.show()
 
-
 def redlining(df, isp, location="National"):
     categories = set(df.speed_down_bins.unique())
     legend_elements = [
@@ -434,7 +389,6 @@ def redlining(df, isp, location="National"):
 
     plt.show()
 
-
 def plot_race(df, isp, location="National", price="$55"):
     categories = set(df.speed_down_bins.unique())
     legend_elements = [
@@ -491,9 +445,6 @@ def plot_race(df, isp, location="National", price="$55"):
             color=speed_labels.get(label),
             zorder=-i,
         )
-    #         ax.plot(data[:, i], intervals[1:],
-    #                 ls="-", linewidth=1.4,
-    #                 alpha=1, c="white")
     ax.margins(y=0)
     ax.set_ylim(steps, 1)
     ax.set_xlim(0, 1)
