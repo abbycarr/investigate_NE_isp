@@ -66,3 +66,9 @@ An overview of offers by each ISP. This contains breakdowns for each city served
 
 ### aggregators.py
 This contains all functions needed to proccess offers and turn them into visualizations. 
+
+### config.py
+This contains all variables needed to proccess offers and turn them into visualizations. 
+
+### parsers.py
+This contains all functions needed to parse offers. 
