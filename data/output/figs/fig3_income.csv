@@ -1,5 +1,5 @@
 income_level,No service,Slow (<25 Mbps),Medium (25-99),Fast (100-199),Blazing (≥200)
-Low,0.0,100.0,0.0,0.0,0.0
-Middle-Lower,0.0,100.0,0.0,0.0,0.0
-Middle-Upper,0.0,100.0,0.0,0.0,0.0
-Upper Income,0.0,100.0,0.0,0.0,0.0
+Low,0.0,0.0,100.0,0.0,0.0
+Middle-Lower,0.0,0.0,0.0,0.0,0.0
+Middle-Upper,0.0,0.0,0.0,0.0,0.0
+Upper Income,0.0,0.0,100.0,0.0,0.0

@@ -1,0 +1,5 @@
+income_level,No service,Slow (<25 Mbps),Medium (25-99),Fast (100-199),Blazing (≥200),major_city
+Low,0.0,0.0,100.0,0.0,0.0,Boston
+Middle-Lower,0.0,0.0,0.0,0.0,0.0,Boston
+Middle-Upper,0.0,0.0,0.0,0.0,0.0,Boston
+Upper Income,0.0,0.0,100.0,0.0,0.0,Boston

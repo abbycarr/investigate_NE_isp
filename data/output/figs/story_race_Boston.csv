@@ -1,0 +1,4 @@
+race_quantile,No service,Slow (<25 Mbps),Medium (25-99),Fast (100-199),Blazing (≥200),major_city
+most white,0.0,0.0,100.0,0.0,0.0,Boston
+integrated,0.0,0.0,100.0,0.0,0.0,Boston
+least white,0.0,0.0,100.0,0.0,0.0,Boston

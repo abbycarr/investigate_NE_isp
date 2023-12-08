@@ -1,0 +1,4 @@
+redlining_grade,No service,Slow (<25 Mbps),Medium (25-99),Fast (100-199),Blazing (≥200),major_city
+B,0.0,0.0,100.0,0.0,0.0,Boston
+C,0.0,0.0,100.0,0.0,0.0,Boston
+D,0.0,0.0,100.0,0.0,0.0,Boston

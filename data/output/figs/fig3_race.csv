@@ -1,5 +1,4 @@
 race_quantile,No service,Slow (<25 Mbps),Medium (25-99),Fast (100-199),Blazing (≥200)
-most white,0.0,100.0,0.0,0.0,0.0
-more white,0.0,100.0,0.0,0.0,0.0
-less white,0.0,100.0,0.0,0.0,0.0
-least white,0.0,100.0,0.0,0.0,0.0
+most white,0.0,0.0,100.0,0.0,0.0
+integrated,0.0,0.0,100.0,0.0,0.0
+least white,0.0,0.0,100.0,0.0,0.0
