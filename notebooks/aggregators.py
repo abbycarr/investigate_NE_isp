@@ -4,11 +4,10 @@ from pandas.api.types import CategoricalDtype
 from matplotlib.lines import Line2D
 import matplotlib.ticker as mtick
 import matplotlib.pyplot as plt
-from sklearn.preprocessing import StandardScaler
 
 pd.options.mode.chained_assignment = None
 
-from config import speed_labels, income_labels, redlininggrade2name, race_labels
+from notebooks.config import speed_labels, income_labels, redlininggrade2name, race_labels
 
 RACE_COL = "race_perc_non_white"
 

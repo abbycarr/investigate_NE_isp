@@ -15,4 +15,3 @@ ipython_config.py
 # data files to skip
 data/intermediary/isp/att/cleveland/*
 data/input/isp/att/*
-data/open_address/original/*

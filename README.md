@@ -6,7 +6,6 @@ We describe our methodology in "[Studying Disparities in Internet Deals in the N
 
 Please read that document to understand the context for the code and data in this repository. 
 
-
 ## Data
 This directory is where inputs, intermediaries, and outputs are saved.
 
