@@ -2,7 +2,7 @@
 
 This repository contains code to discovery disparities in internet packages offered in Boston, MA. The code and methods of the study are from the Mark Up team that wrote "[Dollars to Megabits: You May Be Paying 400 Times As Much As Your Neighbor for Internet](https://themarkup.org/still-loading/2022/10/19/dollars-to-megabits-you-may-be-paying-400-times-as-much-as-your-neighbor-for-internet-service)" in the series [Still Loading](https://themarkup.org/series/still-loading).
 
-We describe our methodology in "[Studying Disparities in Internet Deals in the Northeast Report](add link)".
+We describe our methodology in "[Studying Disparities in Internet Deals in the Northeast Report](https://github.com/abbycarr/investigate_NE_isp/blob/main/report.ipynb)".
 
 Please read that document to understand the context for the code and data in this repository. 
 
