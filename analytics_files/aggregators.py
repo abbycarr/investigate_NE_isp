@@ -5,7 +5,7 @@ from matplotlib.lines import Line2D
 import matplotlib.ticker as mtick
 import matplotlib.pyplot as plt
 
-from notebooks.config import speed_labels, income_labels, redlininggrade2name, race_labels
+from config import speed_labels, income_labels, redlininggrade2name, race_labels
 
 RACE_COL = "race_perc_non_white"
 
