@@ -1,20 +1,11 @@
+"""
+config.py
+This file creates variables based on the project context used throughout  the processing and analysis of 
+scraped ISP internet package offers.
+"""
 import json
-state2majorcity = {"MA": "Boston"}
 
-state2redlining = {
-    "PA": ["../data/input/redlining/PAPhiladelphia1937.geojson"],
-    "MD": ["../data/input/redlining/MDBaltimore1937.geojson"],
-    "MA": ["../data/input/redlining/MABoston1938.geojson"],
-    "RI": ["../data/input/redlining/RIProvidence19XX.geojson"],
-    "NJ": ["../data/input/redlining/NJEssexCo1939.geojson"],
-    "NY": [
-        "../data/input/redlining/NYBronx1938.geojson",
-        "../data/input/redlining/NYBrooklyn1938.geojson",
-        "../data/input/redlining/NYManhattan1937.geojson",
-        "../data/input/redlining/NYQueens1938.geojson",
-        "../data/input/redlining/NYStatenIsland1940.geojson",
-    ],
-}
+state2majorcity = {"MA": "Boston"}
 
 state2address = {
     "CT": ["../data/open_address/original/city_of_hartford-addresses-city.geojson"],
@@ -34,19 +25,18 @@ state2address = {
 }
 
 state2redlining = {
-    "WV": ["../data/input/redlining/WVCharleston1938.geojson"],
-    "PA": ["../data/input/redlining/PAPhiladelphia1937.geojson"],
-    "MD": ["../data/input/redlining/MDBaltimore1937.geojson"],
-    "MA": ["../data/input/redlining/MABoston1938.geojson"],
-    "RI": ["../data/input/redlining/RIProvidence19XX.geojson"],
-    "NJ": ["../data/input/redlining/NJEssexCo1939.geojson"],
-    "TN": ["../data/input/redlining/TNNashville19XX.geojson"],
+    "WV": ["../data/redlining/WVCharleston1938.geojson"],
+    "PA": ["../data/redlining/PAPhiladelphia1937.geojson"],
+    "MD": ["../data/redlining/MDBaltimore1937.geojson"],
+    "MA": ["../data/redlining/MABoston1938.geojson"],
+    "RI": ["../data/redlining/RIProvidence19XX.geojson"],
+    "NJ": ["../data/redlining/NJEssexCo1939.geojson"],
     "NY": [
-        "../data/input/redlining/NYBronx1938.geojson",
-        "../data/input/redlining/NYBrooklyn1938.geojson",
-        "../data/input/redlining/NYManhattan1937.geojson",
-        "../data/input/redlining/NYQueens1938.geojson",
-        "../data/input/redlining/NYStatenIsland1940.geojson",
+        "../data/redlining/NYBronx1938.geojson",
+        "../data/redlining/NYBrooklyn1938.geojson",
+        "../data/redlining/NYManhattan1937.geojson",
+        "../data/redlining/NYQueens1938.geojson",
+        "../data/redlining/NYStatenIsland1940.geojson",
     ],
 }
 

@@ -1,3 +1,8 @@
+"""
+parsers.py
+This file creates functions to process and analyzse scraped ISP internet package offers.
+"""
+
 import gzip
 import json
 
@@ -7,7 +12,7 @@ from tqdm import tqdm
 from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
 from sklearn.neighbors import BallTree
-from notebooks.config import state2redlining, state2majorcity
+from config import state2redlining, state2majorcity
 
 
 ## Census Geocoding
@@ -55,7 +60,7 @@ def check_redlining(df: pd.DataFrame) -> pd.DataFrame:
     Get redlining grades for each address in "df".
     Note: we use city-level HOLC grades, but index on state.
     Thanks for the Mapping Inequality project for digitizing the maps,
-    which are stored in `../data/input/redlining`.
+    which are stored in `../data/redlining`.
     """
     data = []
     for state, _df in tqdm(df.groupby("state")):

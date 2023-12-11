@@ -1,3 +1,8 @@
+"""
+aggregators.py
+This file creates functions to visualize the analysis of scraped ISP internet package offers.
+"""
+
 import numpy as np
 import pandas as pd
 from pandas.api.types import CategoricalDtype
@@ -5,7 +10,9 @@ from matplotlib.lines import Line2D
 import matplotlib.ticker as mtick
 import matplotlib.pyplot as plt
 
-from notebooks.config import speed_labels, income_labels, redlininggrade2name, race_labels
+pd.options.mode.chained_assignment = None
+
+from config import speed_labels, income_labels, redlininggrade2name, race_labels
 
 RACE_COL = "race_perc_non_white"
 
