@@ -60,7 +60,7 @@ This notebook is to process addresses from open address and add census informati
 ### 1-process-offers.ipynb
 This notebook parses and preprocesses offers collected from each ISP's service lookup tools.
 
-### 2a-hughes-reports.ipynb / 2b-xfinity-reports.ipynb / 2c-viasat-reports.ipynb
+### 2a-hughes-reports.ipynb / 2b-xfinity-reports.ipynb / 2c-viasat-reports.ipynb / 2d-compare_all.ipynb
 An overview of offers by each ISP. This contains breakdowns for each city served by the ISP by income level, race/ethnicity, and historical redlining grades. 
 
 ### aggregators.py
@@ -71,3 +71,18 @@ This contains all variables needed to proccess offers and turn them into visuali
 
 ### parsers.py
 This contains all functions needed to parse offers. 
+
+## offer_scrape
+The files here are dedicated to scraping internet package offers from the chosen ISPs: Hughes Net, Xfinity, and Viasat. 
+
+### hughes_utils
+This file contains all functions needs to collect offers from Hughes Net.
+
+### xfinity_utils
+This file contains all functions needs to collect offers from Xfinity.
+
+### viasat_utils
+This file contains all functions needs to collect offers from Viasat.
+
+### scrape_all_isps.ipynb
+This notebook uses all scarping functions to scrape offers from all ISP's for the processed addresses stored in `data/open_address/processed`
