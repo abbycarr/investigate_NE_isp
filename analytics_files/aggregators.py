@@ -5,10 +5,21 @@ from matplotlib.lines import Line2D
 import matplotlib.ticker as mtick
 import matplotlib.pyplot as plt
 
+# These are the labels for buckets we wanted to use
 from config import speed_labels, income_labels, redlininggrade2name, race_labels
 
+"""
+This Code was directly adapted from the Github of the Markup Study
+
+We have added some clarifying comments of our own
+"""
+
+# set race col value
 RACE_COL = "race_perc_non_white"
 
+
+# For Bins split 4 ways
+# Take in a series and a list of their bin titles, and return the binned data
 def aspirational_quartile(series, labels):
     desc = series.describe()
     bins = []
@@ -22,6 +33,7 @@ def aspirational_quartile(series, labels):
     return pd.cut(series, bins=bins, labels=labels, include_lowest=True)
 
 
+# Buckets ALL of the data- including custom splits for values such as speed which has predefined buckets
 def bucket_and_bin(df, limitations=True):
     """This is how we wrangle our data"""
     # These are our IVs
@@ -31,9 +43,9 @@ def bucket_and_bin(df, limitations=True):
         df["median_household_income"] == -666666666.0, "median_household_income"
     ] = None
 
-    df['income_level'] = aspirational_quartile(
-        df['median_household_income'],
-        labels=['Low', 'Middle-Lower', 'Middle-Upper', 'Upper Income'],
+    df["income_level"] = aspirational_quartile(
+        df["median_household_income"],
+        labels=["Low", "Middle-Lower", "Middle-Upper", "Upper Income"],
     )
 
     df["speed_down_bins"] = pd.cut(
@@ -51,6 +63,7 @@ def bucket_and_bin(df, limitations=True):
     except:
         print(df.major_city.iloc[0])
 
+    # This triggers if we're looking at disparities
     if limitations:
         df["race_quantile"] = pd.cut(
             df["race_perc_non_white"],
@@ -71,6 +84,8 @@ def bucket_and_bin(df, limitations=True):
 
     return df
 
+
+# Create a graph of the distribution of speeds through sampled addreses
 def speed_breakdown(df, isp, location="National"):
     categories = set(df.speed_down_bins.unique())
     legend_elements = [
@@ -128,6 +143,7 @@ def speed_breakdown(df, isp, location="National"):
     plt.show()
 
 
+# Create a graph of the distribution of speeds to each race bin
 def race(df, isp, location="National"):
     categories = set(df.speed_down_bins.unique())
     legend_elements = [
@@ -208,6 +224,8 @@ def race(df, isp, location="National"):
 
     plt.show()
 
+
+# Create a graph of the distribution of speeds through income groups
 def income(df, isp, location="National"):
     categories = set(df.speed_down_bins.unique())
     legend_elements = [
@@ -298,6 +316,8 @@ def income(df, isp, location="National"):
 
     plt.show()
 
+
+# Create a graph of the distribution of speeds through the different redline grades
 def redlining(df, isp, location="National"):
     categories = set(df.speed_down_bins.unique())
     legend_elements = [
@@ -386,6 +406,8 @@ def redlining(df, isp, location="National"):
 
     plt.show()
 
+
+# Create a graph of the distribution of speeds through race categories
 def plot_race(df, isp, location="National", price="$55"):
     categories = set(df.speed_down_bins.unique())
     legend_elements = [
