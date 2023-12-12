@@ -86,3 +86,9 @@ This file contains all functions needs to collect offers from Viasat.
 
 ### scrape_all_isps.ipynb
 This notebook uses all scarping functions to scrape offers from all ISP's for the processed addresses stored in `data/open_address/processed`
+
+## analytic_files
+The files here are used to run repoty.ipynb.
+
+## report.ipynb
+The final report as specified  for in the final project instructions.

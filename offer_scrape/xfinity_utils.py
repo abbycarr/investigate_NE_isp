@@ -4,6 +4,21 @@ import time
 import regex as re
 
 def get_xfinity_offer_data(house_number: str, street_name: str, street_type:str, city: str, state: str, zip_code: str, lat: float, long: float):
+    """
+    Gets the response from https://www.xfinity.com/learn/ for searching for an offer at the given address
+    in the United States.
+    Parameters:
+        house_number - str house number for the address
+        street_name - str street name (i.e. Huntington)
+        street_type - str type of street (i.e. Avenue, Boulevard, etc.)
+        city - str name of city
+        state - str state abberviation (i.e. MA)
+        zip_code - str zip code
+        lat - float latitude of the address
+        long - float longitude for the address
+    Return:
+    json offer found for the given address
+    """
     address = '{0} {1} {2}, {3}'.format(house_number, street_name, street_type, zip_code)
     headers = {
         'authority': 'www.xfinity.com',
@@ -64,7 +79,7 @@ def get_xfinity_offer_data(house_number: str, street_name: str, street_type:str,
         }
 
         response = s.post('https://digital.xfinity.com/offers/api/offerpackaging', headers=headers, json=json_data)
-
+        # get offer for the address
         offer = response.json()
 
         # get inernet plans
@@ -108,6 +123,7 @@ def get_xfinity_offer_data(house_number: str, street_name: str, street_type:str,
         upload_info = cheapest_plan[2].split(' ')
         speed_up = upload_info[len(upload_info)-2]
 
+        # build data dictionary with above info.
         data_dict ={}
         data_dict['address_full'] = '{0}, {1} {2}, {3}, {4}, {5}'.format(house_number, street_name, street_type, city, state, zip_code)
         data_dict['incorporated_place'] = city

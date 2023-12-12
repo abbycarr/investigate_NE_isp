@@ -5,8 +5,10 @@ scraped ISP internet package offers.
 """
 import json
 
+# the major city of each state data
 state2majorcity = {"MA": "Boston"}
 
+# the open address data file path for each state
 state2address = {
     "CT": ["../data/open_address/original/city_of_hartford-addresses-city.geojson"],
     "DE": ["../data/open_address/original/city_of_dover-addresses-city.geojson"],
@@ -24,6 +26,7 @@ state2address = {
     "WV": ["../data/open_address/original/wv_statewide-addresses-state.geojson"],
 }
 
+# the redlining data path for each state
 state2redlining = {
     "WV": ["../data/redlining/WVCharleston1938.geojson"],
     "PA": ["../data/redlining/PAPhiladelphia1937.geojson"],
@@ -40,6 +43,7 @@ state2redlining = {
     ],
 }
 
+# the color each speed label will use in visualizations
 speed_labels = {
     "No service": "#5D5D5D",
     "Slow (<25 Mbps)": "#801930",
@@ -48,8 +52,10 @@ speed_labels = {
     "Blazing (≥200)": "#7b89a1",
 }
 
+# income labels for different income brackets
 income_labels = ["Low", "Middle-Lower", "Middle-Upper", "Upper Income"]
 
+# rednline grade labels
 redlininggrade2name = {
     "A": "A - Best",
     "B": "B - Desirable",
@@ -57,4 +63,5 @@ redlininggrade2name = {
     "D": "D - Hazardous",
 }
 
+# race labels for different race porportions
 race_labels = ["most white", "more white", "less white", "least white"]
